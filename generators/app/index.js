@@ -41,32 +41,42 @@ module.exports = bitmate.Base.extend({
     }
   },
 
-  configuring() {
-    this.config.set('props', this.props);
-    const bower = Object.assign({}, {
-      name: "app",
-      version: "0.0.0",
-      dependencies: {
-        react: '^15.0.1'
-      }
-    });
+  configuring: {
+    bower() {
+      const bower = Object.assign({}, {
+        name: "app",
+        version: "0.0.0",
+        dependencies: {
+          react: '^15.0.1'
+        }
+      });
 
-    if (this.props.router === 'router') {
-      if (this.props.modules === 'bower') {
-        bower.dependencies['react-router'] = '^3.0.0';
+      if (this.props.router === 'router') {
+        if (this.props.modules === 'bower') {
+          bower.dependencies['react-router'] = 'https://cdnjs.cloudflare.com/ajax/libs/react-router/2.4.1/ReactRouter.min.js';
+        }
+      }
+
+      if (this.props.styling === 'bootstrap') {
+        bower.dependencies.bootstrap = '3.3.4';
+        bower.dependencies['react-bootstrap'] = '^0.30.7';
+      }
+      this.mergeJson('bower.json', bower);
+    },
+
+    babel() {
+      if (this.props.js !== 'typescript') {
+        const presets = ['react'];
+
+        this.mergeJson('.babelrc', {presets});
       }
     }
-
-    if (this.props.styling === 'bootstrap') {
-      bower.dependencies.bootstrap = '3.3.4';
-      bower.dependencies['react-bootstrap'] = '^0.30.7';
-    }
-    this.mergeJson('bower.json', bower);
   },
 
   composing() {
     const options = {
-      framework: this.props.client,
+      client: this.props.client,
+      modules: this.props.modules,
       html: this.props.html,
       css: this.props.css,
       js: this.props.js,

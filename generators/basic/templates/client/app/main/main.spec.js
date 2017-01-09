@@ -2,21 +2,21 @@
 <% if (modules === 'webpack') { -%>
 var React = require('react');
 var TestUtils = require('react/lib/ReactTestUtils');
-var Hello = require('./hello');
+var Main = require('./main');
 <% } -%>
 <% if (modules === 'systemjs') { -%>
 import React from 'react';
 import TestUtils from 'react/lib/ReactTestUtils';
-import Hello from './hello';
+import Main from './main';
 <% } -%>
-<% if (modules === 'inject') { -%>
+<% if (modules === 'bower') { -%>
 var TestUtils = React.addons.TestUtils;
 <% } -%>
 
-describe('hello component', function () {
+describe('main component', function () {
   it('should render hello world', function () {
-    var hello = TestUtils.renderIntoDocument(<Hello/>);
-    var h1 = TestUtils.findRenderedDOMComponentWithTag(hello, 'h1');
-    expect(h1.textContent).toEqual('Hello world!');
+    var main = TestUtils.renderIntoDocument(<Main/>);
+    var h1 = TestUtils.findRenderedDOMComponentWithTag(main, 'h1');
+    expect(h1.textContent).toEqual('Hello World!');
   });
 });

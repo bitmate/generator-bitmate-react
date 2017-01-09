@@ -6,7 +6,7 @@ import {Router, Route, browserHistory} from 'react-router';
 
 import {Main} from './main/main';
 
-import './index.<%- css %>';
+import './app.<%- css %>';
 
 ReactDOM.render(
 <% if (router === 'router') { -%>

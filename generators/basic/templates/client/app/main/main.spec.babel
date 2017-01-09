@@ -1,0 +1,16 @@
+/* eslint-env jasmine */
+<% if (modules !== 'bower') { -%>
+import React from 'react';
+import TestUtils from 'react/lib/ReactTestUtils';
+import {Main} from './main';
+<% } else { -%>
+const TestUtils = React.addons.TestUtils;
+<% } -%>
+
+describe('main component', () => {
+  it('should render hello world', () => {
+    const main = TestUtils.renderIntoDocument(<Main/>);
+    const h1 = TestUtils.findRenderedDOMComponentWithTag(main, 'h1');
+    expect(h1.textContent).toEqual('Hello World!');
+  });
+});

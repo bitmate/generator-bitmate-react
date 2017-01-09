@@ -6,17 +6,17 @@ var Route = require('react-router').Route;
 var browserHistory = require('react-router').browserHistory;
 <% } -%>
 
-var Hello = require('./app/hello');
+var Main = require('./main/main');
 
-require('./index.<%- css %>');
+require('./app.<%- css %>');
 
 ReactDOM.render(
 <% if (router === 'router') { -%>
   <Router history={browserHistory}>
-    <Route path="/" component={Hello}/>
+    <Route path="/" component={Main}/>
   </Router>,
 <% } else { -%>
-  <Hello/>,
+  <Main/>,
 <% } -%>
-  document.getElementById('root')
+document.getElementById('root')
 );

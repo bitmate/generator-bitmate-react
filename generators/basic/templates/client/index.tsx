@@ -3,10 +3,14 @@ import * as ReactDOM from 'react-dom';
 <% if (router === 'router') { -%>
 import {Router, Route, browserHistory} from 'react-router';
 <% } -%>
+<% if (styling === 'bootstrap' && modules !== 'bower') { -%>
+import 'jquery';
+import 'bootstrap/dist/js/bootstrap.min.js';
+import 'bootstrap/dist/css/bootstrap.css';
+<% } -%>
 
-import {Main} from './main/main';
-
-import './app.<%- css %>';
+import {Main} from './app/main';
+import './index.<%- css %>';
 
 ReactDOM.render(
 <% if (router === 'router') { -%>

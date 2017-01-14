@@ -1,7 +1,7 @@
 /* eslint-env jasmine */
 <% if (modules === 'webpack') { -%>
 var React = require('react');
-var TestUtils = require('react/lib/ReactTestUtils');
+var TestUtils = require('react-dom/lib/ReactTestUtils');
 var Main = require('./main');
 <% } -%>
 <% if (modules === 'systemjs') { -%>

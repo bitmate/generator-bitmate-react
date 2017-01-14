@@ -5,10 +5,15 @@ var Router = require('react-router').Router;
 var Route = require('react-router').Route;
 var browserHistory = require('react-router').browserHistory;
 <% } -%>
+<% if (styling === 'bootstrap' && modules !== 'bower') { -%>
+require('jquery');
+require('bootstrap/dist/js/bootstrap');
+require('bootstrap/dist/css/bootstrap.css');
+<% } -%>
 
-var Main = require('./main/main');
+var Main = require('./app/main');
 
-require('./app.<%- css %>');
+require('./index.<%- css %>');
 
 ReactDOM.render(
 <% if (router === 'router') { -%>

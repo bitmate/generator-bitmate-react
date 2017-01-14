@@ -5,11 +5,11 @@ const bitmate = require('bitmate-generator');
 module.exports = bitmate.Base.extend({
   writing() {
     const files = [
-      'client/app/app.js',
-      'client/app/app.css',
-      'client/app/main/main.js',
-      'client/app/main/main.css',
-      'client/app/main/main.spec.js'
+      'client/index.js',
+      'client/index.css',
+      'client/app/main.js',
+      'client/app/main.css',
+      'client/app/main.spec.js'
     ];
 
     files.map(file => {

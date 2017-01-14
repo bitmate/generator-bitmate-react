@@ -8,11 +8,11 @@ const Utils = require('bitmate-generator').TestUtils;
 let context;
 
 const files = [
-  'app/app.js',
-  'app/app.css',
-  'app/main/main.js',
-  'app/main/main.css',
-  'app/main/main.spec.js'
+  'client/index.js',
+  'client/index.css',
+  'client/app/main.js',
+  'client/app/main.css',
+  'client/app/main.spec.js'
 ];
 
 test.before(() => {
@@ -31,5 +31,5 @@ test(`Call this.copyTemplate 5 times`, t => {
     modules: 'bower'
   });
   expect(spy).to.have.been.called.exactly(files.length);
-  files.forEach(file => t.true(context.copyTemplate[`client/${file}`].length > 0));
+  files.forEach(file => t.true(context.copyTemplate[file].length > 0));
 });

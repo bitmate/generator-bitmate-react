@@ -1,5 +1,6 @@
-<% if(styling === 'bootstrap') { %>@import '../../bower_components/bootstrap/less/bootstrap.less';
-@icon-font-path: '../../bower_components/bootstrap/fonts/';<% } %>
+<% if(styling === 'bootstrap') { %>$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+@import '../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';<% } %>
+
 /**
  * App-wide Styles
  */
@@ -25,6 +26,7 @@ body{
 }
 <% } %>
 
-/* inject:less */
-@import 'main/main.less';
+// Component styles are injected through grunt
+/* inject:scss */
+@import 'app/main.scss';
 /* endinject */

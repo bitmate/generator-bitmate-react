@@ -23,28 +23,41 @@ test.beforeEach(() => {
 });
 
 test(`Add react to bower.json dependencies`, t => {
-  context.props = {};
-  TestUtils.call(context, 'configuring.bower');
+  context.props = {modules: 'bower'};
+  TestUtils.call(context, 'configuring.pkg');
   t.is(context.mergeJson['bower.json'].dependencies.react, '^15.0.1');
+});
+
+test(`Add react-dom and react-addons-test-utils to package.json dependencies`, t => {
+  context.props = {modules: 'webpack'};
+  TestUtils.call(context, 'configuring.pkg');
+  t.is(context.mergeJson['package.json'].dependencies['react-dom'], '^15.0.1');
+  t.is(context.mergeJson['package.json'].devDependencies['react-addons-test-utils'], '^15.0.1');
 });
 
 test(`Add 'react-router' to bower.json dependencies`, t => {
   context.props = {router: 'router', modules: 'bower'};
-  TestUtils.call(context, 'configuring.bower');
+  TestUtils.call(context, 'configuring.pkg');
   t.is(context.mergeJson['bower.json'].dependencies['react-router'], 'https://cdnjs.cloudflare.com/ajax/libs/react-router/2.4.1/ReactRouter.min.js');
 });
 
-test(`Don't add 'react-router' to bower.json when modules is 'webpack'`, t => {
+test(`Add 'react-router' to package.json dependencies`, t => {
   context.props = {router: 'router', modules: 'webpack'};
-  TestUtils.call(context, 'configuring.bower');
-  t.is(context.mergeJson['bower.json'].dependencies['react-router'], undefined);
+  TestUtils.call(context, 'configuring.pkg');
+  t.is(context.mergeJson['package.json'].dependencies['react-router'], '^2.4.0');
 });
 
 test(`Add 'bootstrap' to bower.json dependencies`, t => {
-  context.props = {styling: 'bootstrap'};
-  TestUtils.call(context, 'configuring.bower');
+  context.props = {styling: 'bootstrap', modules: 'bower'};
+  TestUtils.call(context, 'configuring.pkg');
   t.is(context.mergeJson['bower.json'].dependencies.bootstrap, '3.3.4');
   t.is(context.mergeJson['bower.json'].dependencies['react-bootstrap'], '^0.30.7');
+});
+
+test(`Add 'jQuery' to package.json dependencies`, t => {
+  context.props = {styling: 'bootstrap', modules: 'webpack'};
+  TestUtils.call(context, 'configuring.pkg');
+  t.is(context.mergeJson['package.json'].dependencies.jquery, '^3.1.1');
 });
 
 test(`Add 'react' to '.babelrc' when modules is 'systemjs'`, t => {

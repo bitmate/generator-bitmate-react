@@ -1,13 +1,13 @@
 {
   "name": "generator-bitmate-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "BitMate Generator for building React applications.",
   "homepage": "http://bitmate.io/",
   "repository": "oligibson/generator-bitmate-karma",
   "author": "BitMate",
   "main": "index.js",
   "dependencies": {
-    "bitmate-generator": "^1.0.0"
+    "bitmate-generator": "^1.0.1"
   },
   "devDependencies": {
     "ava": "^0.16.0",

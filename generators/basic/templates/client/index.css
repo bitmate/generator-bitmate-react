@@ -33,6 +33,17 @@
 }
 
 body{
+  font-family: Sans-Serif;
   margin: 0px;
+}
+
+#banner.h1{
+  margin-bottom: 10px;
+}
+
+p.lead{
+  font-size: 21px;
+  font-weight: 300;
+  line-height: 1.4;
 }
 <% } %>

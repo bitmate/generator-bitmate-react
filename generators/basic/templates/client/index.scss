@@ -1,5 +1,5 @@
-<% if(styling === 'bootstrap') { %>$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
-@import '../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';<% } %>
+<% if(styling === 'bootstrap' && modules == 'bower') { %>$icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
+@import '../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap';<% } %>
 
 /**
  * App-wide Styles

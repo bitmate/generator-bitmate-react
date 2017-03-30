@@ -54,6 +54,14 @@ test(`Add 'bootstrap' to bower.json dependencies`, t => {
   t.is(context.mergeJson['bower.json'].dependencies['react-bootstrap'], '^0.30.7');
 });
 
+test(`Add 'bootstrap-sass' to bower.json dependencies`, t => {
+  context.props = {styling: 'bootstrap', modules: 'bower', css: 'scss'};
+  TestUtils.call(context, 'configuring.pkg');
+  t.is(context.mergeJson['bower.json'].dependencies.bootstrap, '3.3.4');
+  t.is(context.mergeJson['bower.json'].dependencies['react-bootstrap'], '^0.30.7');
+  t.is(context.mergeJson['bower.json'].dependencies['bootstrap-sass'], '3.3.4');
+});
+
 test(`Add 'jQuery' to package.json dependencies`, t => {
   context.props = {styling: 'bootstrap', modules: 'webpack'};
   TestUtils.call(context, 'configuring.pkg');

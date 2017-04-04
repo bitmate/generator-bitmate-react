@@ -1,5 +1,5 @@
 {
-  "name": "generator-bitmate-react",
+  "name": "@oligibson/generator-bitmate-react",
   "version": "1.0.2",
   "description": "BitMate Generator for building React applications.",
   "homepage": "http://bitmate.io/",
@@ -7,7 +7,7 @@
   "author": "BitMate",
   "main": "index.js",
   "dependencies": {
-    "bitmate-generator": "^1.0.2"
+    "@oligibson/bitmate-generator": "^1.0.0"
   },
   "devDependencies": {
     "ava": "^0.16.0",
@@ -44,8 +44,5 @@
   "eslintConfig": {
     "extends": "xo-space/esnext"
   },
-  "license": "UNLICENSED",
-  "publishConfig": {
-    "registry": "http://sinopia.bitmate.io/"
-  }
+  "license": "UNLICENSED"
 }

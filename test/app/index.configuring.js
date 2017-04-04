@@ -4,7 +4,7 @@ const test = require('ava');
 const chai = require('chai');
 const spies = require('chai-spies');
 chai.use(spies);
-const TestUtils = require('bitmate-generator').TestUtils;
+const TestUtils = require('@oligibson/bitmate-generator').TestUtils;
 
 let context;
 

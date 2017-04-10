@@ -44,35 +44,35 @@ module.exports = bitmate.Base.extend({
   configuring: {
     pkg() {
       const pkg = Object.assign({}, {
-        name: "app",
-        version: "0.0.0",
+        name: 'app',
+        version: '0.0.0',
         dependencies: {
-          react: '^15.0.1'
+          react: '15.4.2'
         },
         devDependencies: {}
       });
 
       if (this.props.modules !== 'bower') {
-        pkg.dependencies['react-dom'] = '^15.0.1';
-        pkg.devDependencies['react-addons-test-utils'] = '^15.0.1';
+        pkg.dependencies['react-dom'] = '15.4.2';
+        pkg.devDependencies['react-addons-test-utils'] = '15.4.2';
       }
 
       if (this.props.router === 'router') {
         const routerVersion = this.props.modules === 'bower' ?
-          'https://cdnjs.cloudflare.com/ajax/libs/react-router/2.4.1/ReactRouter.min.js' :
-          '^2.4.0';
+          'https://cdnjs.cloudflare.com/ajax/libs/react-router/3.0.3/ReactRouter.min.js' :
+          '3.0.3';
         pkg.dependencies['react-router'] = routerVersion;
       }
 
       if (this.props.styling === 'bootstrap') {
         if (this.props.modules !== 'bower') {
-          pkg.dependencies.jquery = '^3.1.1';
+          pkg.dependencies.jquery = '3.2.1';
         }
         if (this.props.modules === 'bower' && this.props.css === 'scss') {
-          pkg.dependencies['bootstrap-sass'] = '3.3.4';
+          pkg.dependencies['bootstrap-sass'] = '3.3.7';
         }
-        pkg.dependencies.bootstrap = '3.3.4';
-        pkg.dependencies['react-bootstrap'] = '^0.30.7';
+        pkg.dependencies.bootstrap = '3.3.7';
+        pkg.dependencies['react-bootstrap'] = '0.30.8';
       }
 
       if (this.props.modules === 'bower') {
